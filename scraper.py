@@ -70,6 +70,6 @@ while True:
 		break
 
 driver.quit()
-print "Player data for current season from stats.nba.com written to " + FILE_OUT
+print "Data from " + WEBSITE + " written to " + FILE_OUT
 
 

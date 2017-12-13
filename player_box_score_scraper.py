@@ -4,7 +4,6 @@
 
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
-
 from bs4 import BeautifulSoup
 import csv
 import time

@@ -5,6 +5,7 @@
 # saved to.
 
 from selenium import webdriver
+from selenium.webdriver.support.ui import WebDriverWait
 from bs4 import BeautifulSoup
 import csv
 import time
@@ -35,6 +36,13 @@ def write_table_to_file(filename, headers, rows):
 	f.close()
 	return;
 
+def find_table(driver):
+	table = driver.find_element_by_tag_name('nba-stat-table')
+	if table:
+		return table
+	else:
+		return False
+
 
 try:	
 	WEBSITE = sys.argv[1]
@@ -54,7 +62,7 @@ data = []
 headers = []
 
 while True:
-	table = driver.find_element_by_tag_name('nba-stat-table') 	# get data table from page
+	table = WebDriverWait(driver, 10).until(find_table)	# wait until table found if needed
 	html = table.get_attribute('innerHTML')
 	if html == prev_table_html:  # if not another page, stop and write data
 		write_table_to_file(FILE_OUT, headers, data)

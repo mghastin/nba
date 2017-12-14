@@ -24,6 +24,6 @@ for file in get_csv_files():
 	table_name = file.replace('.csv', '')
 	print "Table name in database will be: " + table_name
 	print "I'm going to send to sql!"
-	df.to_sql(table_name.decode('utf-8'), conn, if_exists='append', index=False)
+	df.to_sql(table_name.decode('utf-8'), conn, if_exists='replace', index=False)
 
-
+conn.close()

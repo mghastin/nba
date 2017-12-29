@@ -6,4 +6,4 @@ plays = ["isolation", "transition", "ball-handler", "roll-man", "playtype-post-u
 for play in plays:		
 	print "http://stats.nba.com/players/" + play + "/"	
 	call(["python", "scraper.py", "http://stats.nba.com/players/" + play + "/", 
-			"data/plays/" + play + ".csv"])
+			"data/" + play + ".csv"])
